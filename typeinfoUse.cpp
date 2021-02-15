@@ -9,6 +9,8 @@ int main()
 
     // if decltype uses a variable, it will return the type of the variable
     // (es reference and top-level const).
+    // double brackets -> reference
+    // single brackets -> reference only this variable is a reference.
 
     decltype((a)) c = a;
     double d = 30.23;
