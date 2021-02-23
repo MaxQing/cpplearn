@@ -17,9 +17,12 @@ int main() {
 
     // empty and size
     // size is a unsigned int, its type is std::size_type.
+    // string objects are equals means that 
+    // the same length and
+    // contains all the same characters
     string temp;
     cin >> temp;
-    if (!temp.empty()) {
+    if (!temp.empty() && temp == "somethings") {
         cout << "The length of this string is " << temp.size() << endl;
     }
     return 0;
