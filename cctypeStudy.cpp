@@ -11,7 +11,7 @@ int main() {
     std::cout << "Please input a string, it will be upper." << std::endl;
     std::cin >> test;
     for (char &temp : test) {
-        if (std::islower(temp)) {
+        if (std::islower(temp)) { 
             temp = std::toupper(temp);
         }
     }
