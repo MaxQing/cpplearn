@@ -11,7 +11,7 @@ double Sales_data::avg_price() const {
 
 Sales_data &Sales_data::combine(const Sales_data &rhs) {
   unites_sold += rhs.unites_sold;
-  revenue = rhs.revenue;
+  revenue += rhs.revenue;
   return *this;
 }
 
