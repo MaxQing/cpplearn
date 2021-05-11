@@ -21,13 +21,17 @@ public:
     do_display(os);
     return *this;
   }
+  pos size() const;
 
 private:
   pos cursor = 0;
   pos height = 0, width = 0;
   std::string contents;
   void do_display(std::ostream &os) const { os << contents; }
+  friend class Window_mgr;
 };
+
+Screen::pos Screen::size() const { return this->height * this->width; }
 
 // outside -> inline
 inline Screen &Screen::move(pos r, pos c) {
@@ -52,9 +56,18 @@ inline Screen &Screen::set(pos r, pos col, char ch) {
 }
 
 class Window_mgr {
+public:
+  using ScreenIndex = std::vector<Screen>::size_type;
+  void clear(ScreenIndex);
+
 private:
   std::vector<Screen> screens{Screen(24, 80, ' ')};
 };
+
+void Window_mgr::clear(ScreenIndex i) {
+  Screen &s = screens[i];
+  s.contents = std::string(s.height * s.width, ' ');
+}
 
 int main() {
   Screen myScreen(5, 5, 'X');
