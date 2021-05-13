@@ -17,11 +17,11 @@ std::ostream &print(std::ostream &os, const Sales_data &item) {
 std::istream &read(std::istream &is, Sales_data &item) {
 	std::string isbn;
 	unsigned n;
-	double revenue;
-	is >> isbn >> n >> revenue;
+	double p;
+	is >> isbn >> n >> p;
 	item.setIsbn(isbn);
 	item.setUnit(n);
-	item.setRevenue(revenue);
+	item.setRevenue(n * p);
 	return is;
 }
 
